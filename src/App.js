@@ -1,9 +1,11 @@
 import './App1.css';
-// import Skill from './components/Skill';
-// import Education from './components/Education';
-// import Experiance from './components/Experiance';
-// import Interests from './components/Interests';
+import Skill from './components/Skill';
+import Education from './components/Education';
+import Experiance from './components/Experiance';
+import Interests from './components/Interests';
 import Border from './components/Border';
+
+
 
 
 let resume = {
@@ -20,17 +22,17 @@ function App() {
   return (
     <>
     <Border resume={resume}>
-      {/* <h1>Resume</h1>
-      <h1>Sourav</h1>
-      <hr />
-      <Interests interests={resume.interests} />
-      <hr />
-      <Skill skills={resume.skills}  />
-      <hr />
-      <Education education={resume.education} />
-      <hr />
-      <Experiance experience={resume.experience} />
-      <hr /> */}
+    <h1>Resume</h1>
+    <h1>Sourav</h1>
+    <hr />
+    <Interests interests={resume.interests} />
+    <hr />
+    <Skill skills={resume.skills}  />
+    <hr />
+    <Education education={resume.education} />
+    <hr />
+    <Experiance experience={resume.experience} />
+    <hr />
     </Border>
     </>
   );
