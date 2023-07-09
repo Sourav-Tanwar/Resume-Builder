@@ -4,6 +4,7 @@ import Education from './components/Education';
 import Experiance from './components/Experiance';
 import Interests from './components/Interests';
 import Border from './components/Border';
+import Extracurriculars from './components/Extracurriculars';
 
 
 
@@ -17,6 +18,7 @@ let resume = {
   education:["12th 77%","10th 76%","BTech 73%" ],
   skills : [ 'react js', 'node js']
   }
+  let  EC_items = ["Cricket","Chess","Mobile Games"]
 
 function App() {
   return (
@@ -33,7 +35,9 @@ function App() {
     <hr />
     <Experiance experience={resume.experience} />
     <hr />
+    <Extracurriculars layout="alpha" EC_items={EC_items}/> {/* layout alpha numbered bullets */}
     </Border>
+
     </>
   );
 }

@@ -7,7 +7,7 @@ export default function Experiance({experience}) {
   // console.log(experience)
   const content = experience.map((exp) =>{
     let max =2;
-    console.log(max, exp.id)
+    // console.log(max, exp.id)
       if (exp.id<=max){
         return (<ul key={exp.id}>
           <li>Year : {exp.year}</li>
@@ -15,7 +15,9 @@ export default function Experiance({experience}) {
           <li>Role : {exp.role}</li>
           <br />
         </ul>)
+
       }
+      return ""
   }
   );
   return (
