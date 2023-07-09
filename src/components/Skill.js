@@ -1,7 +1,7 @@
 import React from 'react'
 
 export default function Skill({skills}) {
-    // console.log(skills)
+    console.log(skills)
   return (
     <>
     <p className="head">Skills</p>
