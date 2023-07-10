@@ -20,23 +20,42 @@ let resume = {
   }
   let  EC_items = ["Cricket","Chess","Mobile Games"]
 
+ const handleDarkMode= ()=>{
+  let current_class= document.getElementById('content').className
+  //  console.log(document.getElementById('content').className)
+  if (current_class==="stuff"){
+    document.getElementById('content').className = 'dark-mode';
+  }
+  else{
+    document.getElementById('content').className = 'stuff';
+  }
+ }
+
 function App() {
+
   return (
     <>
-    <Border resume={resume}>
+    <Border >
+
+    <button onClick={handleDarkMode}>Change Mode</button>
     <h1>Resume</h1>
     <h1>Sourav</h1>
     <hr />
-    <Interests interests={resume.interests} />
+    {resume.interests.length > 0 ?<Interests interests={resume.interests} /> :null }
+    {/* <Interests interests={resume.interests} /> */} 
     <hr />
-    <Skill skills={resume.skills}  />
+    {resume.skills.length > 0 ?<Skill skills={resume.skills}  /> :null }
+    {/* <Skill skills={resume.skills}  /> */}
     <hr />
-    <Education education={resume.education} />
+    {resume.education.length > 0 ?<Education education={resume.education} /> :null }
+    {/* <Education education={resume.education} /> */}
     <hr />
-    <Experiance experience={resume.experience} />
+    {resume.experience.length > 0 ?<Experiance experience={resume.experience} /> :null }
+    {/* <Experiance experience={resume.experience} /> */}
     <hr />
-    <Extracurriculars layout="alpha" EC_items={EC_items}/> {/* layout alpha numbered bullets */}
-    </Border>
+    {EC_items.length > 0 ?<Extracurriculars layout="alpha" EC_items={EC_items}/> :null }
+    {/* <Extracurriculars layout="alpha" EC_items={EC_items}/> layout alpha numbered bullets */}
+    </Border>    
 
     </>
   );

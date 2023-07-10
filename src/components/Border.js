@@ -6,7 +6,7 @@ export default function Border(props) {
     <>
         <div id="header"></div>
             <div className="left"></div>
-            <div className="stuff">
+            <div id="content" className="stuff">
             <br/>
             {props.children}
             </div>
