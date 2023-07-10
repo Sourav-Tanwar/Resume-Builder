@@ -5,6 +5,8 @@ import Experiance from './components/Experiance';
 import Interests from './components/Interests';
 import Border from './components/Border';
 import Extracurriculars from './components/Extracurriculars';
+import Assignment1 from './components/Chapter4/Assignment1';
+
 
 
 
@@ -20,45 +22,59 @@ let resume = {
   }
   let  EC_items = ["Cricket","Chess","Mobile Games"]
 
- const handleDarkMode= ()=>{
-  let current_class= document.getElementById('content').className
-  //  console.log(document.getElementById('content').className)
-  if (current_class==="stuff"){
-    document.getElementById('content').className = 'dark-mode';
-  }
-  else{
-    document.getElementById('content').className = 'stuff';
-  }
- }
+
 
 function App() {
-
+  let button_name ="Dark";
+  const handleDarkMode= (button_name)=>{
+    console.log(button_name)
+    let current_class= document.getElementById('content').className
+    //  console.log(document.getElementById('content').className)
+    if (current_class==="stuff"){
+      document.getElementById('content').className = 'dark-mode';
+      button_name = "Light"
+      console.log(button_name)
+    }
+    else{
+      document.getElementById('content').className = 'stuff';
+      button_name = "Dark"
+      console.log(button_name)
+    }
+   }
   return (
     <>
-    <Border >
+    <Assignment1 />
 
-    <button onClick={handleDarkMode}>Change Mode</button>
+
+
+
+
+
+
+    {/* <Border >
+    <button onClick={handleDarkMode}>{button_name} Change Mode</button>
     <h1>Resume</h1>
     <h1>Sourav</h1>
     <hr />
     {resume.interests.length > 0 ?<Interests interests={resume.interests} /> :null }
-    {/* <Interests interests={resume.interests} /> */} 
     <hr />
     {resume.skills.length > 0 ?<Skill skills={resume.skills}  /> :null }
-    {/* <Skill skills={resume.skills}  /> */}
     <hr />
     {resume.education.length > 0 ?<Education education={resume.education} /> :null }
-    {/* <Education education={resume.education} /> */}
     <hr />
     {resume.experience.length > 0 ?<Experiance experience={resume.experience} /> :null }
-    {/* <Experiance experience={resume.experience} /> */}
     <hr />
     {EC_items.length > 0 ?<Extracurriculars layout="alpha" EC_items={EC_items}/> :null }
-    {/* <Extracurriculars layout="alpha" EC_items={EC_items}/> layout alpha numbered bullets */}
-    </Border>    
+    </Border>     */}
 
+    {/* <Interests interests={resume.interests} /> */} 
+    {/* <Skill skills={resume.skills}  /> */}
+    {/* <Education education={resume.education} /> */}
+    {/* <Experiance experience={resume.experience} /> */}
+    {/* <Extracurriculars layout="alpha" EC_items={EC_items}/> layout alpha numbered bullets */}
     </>
   );
 }
 
 export default App;
+
