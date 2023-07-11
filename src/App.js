@@ -9,6 +9,7 @@ import Assignment1 from './components/Chapter4/Assignment1';
 import Assignment2 from './components/Chapter4/Assignment2';
 import Assignment3 from './components/Chapter4/Assignment3';
 import Assignment5 from './components/Chapter4/Assignment5';
+import Assignment7 from './components/Chapter4/Assignment7';
 
 
 
@@ -28,7 +29,6 @@ let resume = {
 
 
 function App() {
-  console.log("App")
   let button_name ="Dark";
   const handleDarkMode= (button_name)=>{
     console.log(button_name)
@@ -53,10 +53,14 @@ function App() {
    }
   return (
     <>
-    
+    <div onClick={()=>console.log("App")}>
     
 
     <Assignment5 onClick={()=>{alert("Assignment5 Running")}}/>
+
+    <Assignment7 onClose={()=>{
+    let customWindow = window.open('', '_blank', '');
+    customWindow.close();}}   />
 
     {/* <Assignment3/>
     <Assignment2/>
@@ -85,6 +89,7 @@ function App() {
     {/* <Education education={resume.education} /> */}
     {/* <Experiance experience={resume.experience} /> */}
     {/* <Extracurriculars layout="alpha" EC_items={EC_items}/> layout alpha numbered bullets */}
+    </div>
     </>
   );
 }
