@@ -43,6 +43,12 @@ function App() {
       console.log(button_name)
     }
    }
+
+
+
+   const handlePrint =()=>{
+      window.print()
+   }
   return (
     <>
     
@@ -50,10 +56,13 @@ function App() {
 
 
 
-    <Assignment3/>
+    {/* <Assignment3/>
     <Assignment2/>
-    <Assignment1 />
-    {/* <Border >
+    <Assignment1 /> */}
+
+
+    <Border >
+    <button onClick={handlePrint}>Print Resume</button>
     <button onClick={handleDarkMode}>{button_name} Change Mode</button>
     <h1>Resume</h1>
     <h1>Sourav</h1>
@@ -67,7 +76,7 @@ function App() {
     {resume.experience.length > 0 ?<Experiance experience={resume.experience} /> :null }
     <hr />
     {EC_items.length > 0 ?<Extracurriculars layout="alpha" EC_items={EC_items}/> :null }
-    </Border>     */}
+    </Border>    
 
     {/* <Interests interests={resume.interests} /> */} 
     {/* <Skill skills={resume.skills}  /> */}
