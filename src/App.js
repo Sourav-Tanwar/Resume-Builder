@@ -28,6 +28,7 @@ let resume = {
 
 
 function App() {
+  console.log("App")
   let button_name ="Dark";
   const handleDarkMode= (button_name)=>{
     console.log(button_name)
