@@ -7,6 +7,7 @@ import Border from './components/Border';
 import Extracurriculars from './components/Extracurriculars';
 import Assignment1 from './components/Chapter4/Assignment1';
 import Assignment2 from './components/Chapter4/Assignment2';
+import Assignment3 from './components/Chapter4/Assignment3';
 
 
 
@@ -45,12 +46,12 @@ function App() {
   return (
     <>
     
+    
+
+
+
+    <Assignment3/>
     <Assignment2/>
-
-
-
-
-
     <Assignment1 />
     {/* <Border >
     <button onClick={handleDarkMode}>{button_name} Change Mode</button>
