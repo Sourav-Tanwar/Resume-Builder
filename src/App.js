@@ -8,6 +8,7 @@ import Extracurriculars from './components/Extracurriculars';
 import Assignment1 from './components/Chapter4/Assignment1';
 import Assignment2 from './components/Chapter4/Assignment2';
 import Assignment3 from './components/Chapter4/Assignment3';
+import Assignment5 from './components/Chapter4/Assignment5';
 
 
 
@@ -54,14 +55,14 @@ function App() {
     
     
 
-
+    <Assignment5 onClick={()=>{alert("Assignment5 Running")}}/>
 
     {/* <Assignment3/>
     <Assignment2/>
     <Assignment1 /> */}
 
 
-    <Border >
+    {/* <Border >
     <button onClick={handlePrint}>Print Resume</button>
     <button onClick={handleDarkMode}>{button_name} Change Mode</button>
     <h1>Resume</h1>
@@ -76,7 +77,7 @@ function App() {
     {resume.experience.length > 0 ?<Experiance experience={resume.experience} /> :null }
     <hr />
     {EC_items.length > 0 ?<Extracurriculars layout="alpha" EC_items={EC_items}/> :null }
-    </Border>    
+    </Border>     */}
 
     {/* <Interests interests={resume.interests} /> */} 
     {/* <Skill skills={resume.skills}  /> */}
