@@ -10,6 +10,7 @@ import Assignment2 from './components/Chapter4/Assignment2';
 import Assignment3 from './components/Chapter4/Assignment3';
 import Assignment5 from './components/Chapter4/Assignment5';
 import Assignment7 from './components/Chapter4/Assignment7';
+import Assignment1C5 from './components/Chapter5/Assignment1';
 
 
 
@@ -55,12 +56,13 @@ function App() {
     <>
     <div onClick={()=>console.log("App")}>
     
+    <Assignment1C5/>
 
-    <Assignment5 onClick={()=>{alert("Assignment5 Running")}}/>
+    {/* <Assignment5 onClick={()=>{alert("Assignment5 Running")}}/>
 
     <Assignment7 onClose={()=>{
     let customWindow = window.open('', '_blank', '');
-    customWindow.close();}}   />
+    customWindow.close();}}   /> */}
 
     {/* <Assignment3/>
     <Assignment2/>
