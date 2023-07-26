@@ -12,6 +12,7 @@ import Assignment5 from './components/Chapter4/Assignment5';
 import Assignment7 from './components/Chapter4/Assignment7';
 import Assignment1C5 from './components/Chapter5/Assignment1';
 import Assignment2C5 from './components/Chapter5/Assignment2';
+import Assignment1C6 from'./components/Chapter6/Assignment1';
 import StopWatch from './components/Chapter5/Asignment2/StopWatch';
 
 
@@ -29,7 +30,11 @@ let resume = {
   }
   let  EC_items = ["Cricket","Chess","Mobile Games"]
 
-
+  const  nations  = [
+    { name:  'India', value:  'IN' },
+    { name:  'Pak', value:  'PK' },
+    { name:  'Bangladesh', value:  'BG' },
+  ] 
 
 function App() {
   let button_name ="Dark";
@@ -56,10 +61,14 @@ function App() {
    }
   return (
     <>
-    <div onClick={()=>console.log("App")}>
+    <div >    {/*  onClick={()=>console.log("App")} */}
     
+    <Assignment1C6 nations={nations}/>
 
-    <StopWatch></StopWatch>
+
+
+
+    
     {/* <Assignment2C5/> */}
     {/* <Assignment1C5/> */}
 
