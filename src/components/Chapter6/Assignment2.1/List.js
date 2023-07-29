@@ -1,6 +1,7 @@
-import React, {useState} from 'react'
+import React , {useState} from 'react';
+import InputForm from './InputForm';
+export default function List() {
 
-export default function Assignment2() {
     let Cricketer =['Rohit Sharma', "Virat Kohli","Suresh Raina", "Yuvraj Singh", "Gautam Gambhir","Virendar Shewag","Umesh Yadav"
     ,"Ishan Kishan","Subhman Gill","Ravinder Jadeja","Sachin","Jaspreet Bumrah","Ishant Sharma", "MS Dhoni"]
 
@@ -23,17 +24,8 @@ export default function Assignment2() {
     }
   return (
     <>
-    <div>Filter List</div>
-
-    <label htmlFor="player">Enter Name</label>
-    <input type="text" placeholder="name" name="player" onChange={handleInput}   />
-
-
-    <p className="head">Cricketer</p>
-    <ul>{player.map((data)=>{
-          return <li  key={data} >{data}</li>
-        })
-    }</ul>
+    <div>List</div>
+    <InputForm handleInput={handleInput} player={player} setPlayer={setPlayer} />
 
     </>
   )

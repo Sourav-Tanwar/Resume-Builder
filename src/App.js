@@ -15,6 +15,7 @@ import Assignment2C5 from './components/Chapter5/Assignment2';
 import StopWatch from './components/Chapter5/Asignment2/StopWatch';
 import Assignment1C6 from'./components/Chapter6/Assignment1';
 import Assignment2C6 from'./components/Chapter6/Assignment2';
+import List from './components/Chapter6/Assignment2.1/List';
 
 
 
@@ -66,11 +67,11 @@ function App() {
     <div >    {/*  onClick={()=>console.log("App")} */}
     
 
-    <Assignment2C6></Assignment2C6>
+    
 
+    <List/>
 
-
-
+    {/* <Assignment2C6></Assignment2C6> */}
     {/* <Assignment1C6 nations={nations}/> */}
     {/* <Assignment2C5/> */}
     {/* <Assignment1C5/> */}
