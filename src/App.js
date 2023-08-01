@@ -1,4 +1,5 @@
 import './App1.css';
+import React, {useState, useEffect} from 'react';
 import Skill from './components/Skill';
 import Education from './components/Education';
 import Experiance from './components/Experiance';
@@ -16,6 +17,7 @@ import StopWatch from './components/Chapter5/Asignment2/StopWatch';
 import Assignment1C6 from'./components/Chapter6/Assignment1';
 import Assignment2C6 from'./components/Chapter6/Assignment2';
 import List from './components/Chapter6/Assignment2.1/List';
+import AddData from './components/AddForm/AddData';
 
 
 
@@ -29,9 +31,10 @@ let resume = {
   {id:2, year:2022, company:'MindTree', role:'React' },
   {id:3, year:2023, company:'Coforge', role:'Mongo DB' }],
   education:["12th 77%","10th 76%","BTech 73%" ],
-  skills : [ 'react js', 'node js']
+  skills : [ 'react js', 'node js'],
+  EC_items :["Cricket","Chess","Mobile Games"]
   }
-  let  EC_items = ["Cricket","Chess","Mobile Games"]
+
 
   const  nations  = [
     { name:  'India', value:  'IN' },
@@ -40,69 +43,94 @@ let resume = {
   ] 
 
 function App() {
-  let button_name ="Dark";
-  const handleDarkMode= (button_name)=>{
-    console.log(button_name)
+
+  const [showform, setShowForm] = useState(false); 
+  const [interests, setInterests] = useState(resume.interests);
+  const [skills, setSkills] = useState(resume.skills);
+  const [education, setEducation] = useState(resume.education);
+  const [EC_items, setEC_items] = useState(resume.EC_items);
+  
+  console.log(interests)
+  useEffect(()=>{
+    // console.log(interests)
+    // setInterests(skills)
+  },[skills,interests,education,EC_items])
+
+  const showForm = () => {
+    console.log(showform)
+    setShowForm(!showform);
+  }
+
+  const [mode, setMode] = useState("Dark")
+  // let mode ="Dark";
+  const handleDarkMode= (mode)=>{
+    console.log(mode)
     let current_class= document.getElementById('content').className
     //  console.log(document.getElementById('content').className)
     if (current_class==="stuff"){
       document.getElementById('content').className = 'dark-mode';
-      button_name = "Light"
-      console.log(button_name)
+      // mode = "Light"
+      setMode("Light")
+      console.log(mode)
     }
     else{
       document.getElementById('content').className = 'stuff';
-      button_name = "Dark"
-      console.log(button_name)
+      // mode = "Dark"
+      setMode("Dark")
+      console.log(mode)
     }
    }
 
-
-
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    // take data to submit
+  };
+   
    const handlePrint =()=>{
       window.print()
    }
   return (
     <>
-    <div >    {/*  onClick={()=>console.log("App")} */}
+    <div  >    {/*  onClick={()=>console.log("App")} */}
     
 
     
 
-    <List/>
-
+    {/* <List/> */}
     {/* <Assignment2C6></Assignment2C6> */}
     {/* <Assignment1C6 nations={nations}/> */}
     {/* <Assignment2C5/> */}
     {/* <Assignment1C5/> */}
-
     {/* <Assignment5 onClick={()=>{alert("Assignment5 Running")}}/>
-
     <Assignment7 onClose={()=>{
     let customWindow = window.open('', '_blank', '');
     customWindow.close();}}   /> */}
-
     {/* <Assignment3/>
     <Assignment2/>
     <Assignment1 /> */}
 
-
-    {/* <Border >
+    
+    <Border >
+      <div onSubmit={handleSubmit}>
     <button onClick={handlePrint}>Print Resume</button>
-    <button onClick={handleDarkMode}>{button_name} Change Mode</button>
+    <button onClick={handleDarkMode}>{mode} Mode</button>
+    <button onClick={showForm} >{showform? "Save":"Edit"} </button>
+    {showform ? <AddData interests={interests} skills={skills} education={education} EC_items={EC_items} setInterests={setInterests} setSkills={setSkills} setEducation={setEducation} setEC_items={setEC_items}  resume={resume}/>: null}
+  
     <h1>Resume</h1>
     <h1>Sourav</h1>
     <hr />
-    {resume.interests.length > 0 ?<Interests interests={resume.interests} /> :null }
+    {interests.length > 0 ?<Interests interests={interests} /> :null }
     <hr />
-    {resume.skills.length > 0 ?<Skill skills={resume.skills}  /> :null }
+    {resume.skills.length > 0 ?<Skill skills={skills}  /> :null }
     <hr />
-    {resume.education.length > 0 ?<Education education={resume.education} /> :null }
+    {resume.education.length > 0 ?<Education education={education} /> :null }
     <hr />
     {resume.experience.length > 0 ?<Experiance experience={resume.experience} /> :null }
     <hr />
-    {EC_items.length > 0 ?<Extracurriculars layout="alpha" EC_items={EC_items}/> :null }
-    </Border>     */}
+    {resume.EC_items.length > 0 ?<Extracurriculars layout="alpha" EC_items={EC_items}/> :null }
+    </div>
+    </Border>    
 
     {/* <Interests interests={resume.interests} /> */} 
     {/* <Skill skills={resume.skills}  /> */}
