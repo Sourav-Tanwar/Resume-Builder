@@ -5,28 +5,31 @@ export default function AddData({interests,skills,education,EC_items ,setInteres
     const [Skillsdata, setSkillsData] = useState(skills)
     const [Educationdata, setEducationData] = useState(education)
     const [EC_itemsdata, setEC_itemsData] = useState(EC_items)
+
     const handleInterestsChange = (e) => {
         let temp_data = e.target.value;
         let final_data = temp_data.split(/[ ,]+/)
         console.log(final_data)
-        setInterests(Interestsdata.concat(final_data))
+        setInterests(final_data)
     };
     
     const handleSkillChange = (e) => {
         let temp_data = e.target.value;
         let final_data = temp_data.split(/[ ,]+/)
-        setSkills(Skillsdata.concat(final_data))
+        
+        setSkills(final_data)
+       
 
     };
     const handleEducationChange = (e) => {
         let temp_data = e.target.value;
         let final_data = temp_data.split(/[ ,]+/)
-        setEducation(Educationdata.concat(final_data))
+        setEducation(final_data)
     };
     const handleExtracurricularsChange = (e) => {
         let temp_data = e.target.value;
         let final_data = temp_data.split(/[ ,]+/)
-        setEC_items(EC_itemsdata.concat(final_data))
+        setEC_items(final_data)
     
     };
     const handleSubmit = (e) => {
@@ -34,22 +37,22 @@ export default function AddData({interests,skills,education,EC_items ,setInteres
       };
   return (
     <>
-    <div className='editInterests'>Add Resume items</div>
+    <div className='editInterests'>Update Resume</div>
     <form onSubmit={handleSubmit}>
         <div>
-        <label >Add Interests: </label>
+        <label >Update Interests: </label>
         <input type="text" onChange={handleInterestsChange}/>
         </div>
         <div>
-        <label >Add Skills: </label>
+        <label >Update Skills: </label>
         <input type="text" onChange={handleSkillChange}/>
         </div>
         <div>
-        <label >Add Education: </label>
+        <label >Update Education: </label>
         <input type="text" onChange={handleEducationChange}/>
         </div>
         <div>
-        <label >Add Extracurriculars: </label>
+        <label >Update Extracurriculars: </label>
         <input type="text" onChange={handleExtracurricularsChange}/>
         </div>
     </form>

@@ -18,6 +18,7 @@ import Assignment1C6 from'./components/Chapter6/Assignment1';
 import Assignment2C6 from'./components/Chapter6/Assignment2';
 import List from './components/Chapter6/Assignment2.1/List';
 import AddData from './components/AddForm/AddData';
+import UpdateData from './components/UpdateData/UpdateData';
 
 
 
@@ -44,21 +45,30 @@ let resume = {
 
 function App() {
 
-  const [showform, setShowForm] = useState(false); 
+  const [showAddform, setShowAddForm] = useState(false); 
+  const [showUpdateform, setshowUpdateform] = useState(false); 
   const [interests, setInterests] = useState(resume.interests);
   const [skills, setSkills] = useState(resume.skills);
   const [education, setEducation] = useState(resume.education);
   const [EC_items, setEC_items] = useState(resume.EC_items);
   
-  console.log(interests)
+  // console.log(interests)
   useEffect(()=>{
     // console.log(interests)
     // setInterests(skills)
   },[skills,interests,education,EC_items])
 
-  const showForm = () => {
-    console.log(showform)
-    setShowForm(!showform);
+  const showAddForm = () => {
+    if(showUpdateform){
+      setshowUpdateform(!showUpdateform)
+    }
+    setShowAddForm(!showAddform);
+  }
+  const showUpdateForm = () => {
+    if(showAddform){
+      setShowAddForm(!showAddform);
+    }
+    setshowUpdateform(!showUpdateform);
   }
 
   const [mode, setMode] = useState("Dark")
@@ -114,9 +124,11 @@ function App() {
       <div onSubmit={handleSubmit}>
     <button onClick={handlePrint}>Print Resume</button>
     <button onClick={handleDarkMode}>{mode} Mode</button>
-    <button onClick={showForm} >{showform? "Save":"Edit"} </button>
-    {showform ? <AddData interests={interests} skills={skills} education={education} EC_items={EC_items} setInterests={setInterests} setSkills={setSkills} setEducation={setEducation} setEC_items={setEC_items}  resume={resume}/>: null}
-  
+    <button onClick={showAddForm} >{showAddform? "Save Add":"Add"} </button>
+    <button onClick={showUpdateForm} >{showUpdateform? "Save Updates":"Update"} </button>
+    {showAddform ? <AddData interests={interests} skills={skills} education={education} EC_items={EC_items} setInterests={setInterests} setSkills={setSkills} setEducation={setEducation} setEC_items={setEC_items}  resume={resume}/>: null}
+    {showUpdateform ? <UpdateData interests={interests} skills={skills} education={education} EC_items={EC_items} setInterests={setInterests} setSkills={setSkills} setEducation={setEducation} setEC_items={setEC_items}  resume={resume}/>: null}
+
     <h1>Resume</h1>
     <h1>Sourav</h1>
     <hr />
