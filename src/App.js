@@ -19,6 +19,7 @@ import Assignment2C6 from'./components/Chapter6/Assignment2';
 import List from './components/Chapter6/Assignment2.1/List';
 import AddData from './components/AddForm/AddData';
 import UpdateData from './components/UpdateData/UpdateData';
+import DeleteData from './components/DeleteData/DeleteData';
 
 
 
@@ -46,7 +47,8 @@ let resume = {
 function App() {
 
   const [showAddform, setShowAddForm] = useState(false); 
-  const [showUpdateform, setshowUpdateform] = useState(false); 
+  const [showUpdateform, setshowUpdateForm] = useState(false); 
+  const [showDeleteform, setshowDeleteForm] = useState(false); 
   const [interests, setInterests] = useState(resume.interests);
   const [skills, setSkills] = useState(resume.skills);
   const [education, setEducation] = useState(resume.education);
@@ -59,17 +61,34 @@ function App() {
   },[skills,interests,education,EC_items])
 
   const showAddForm = () => {
-    if(showUpdateform){
-      setshowUpdateform(!showUpdateform)
+    if(showUpdateform ){
+      setshowUpdateForm(!showUpdateform);
+    }
+    if(showDeleteform){
+      setshowDeleteForm(!showDeleteform);
     }
     setShowAddForm(!showAddform);
   }
   const showUpdateForm = () => {
+    if(showAddform ){
+      setShowAddForm(!showAddform);
+    }
+    if(showDeleteform){
+      setshowDeleteForm(!showDeleteform);
+    }
+    setshowUpdateForm(!showUpdateform);
+  }
+
+  const showDeleteForm = () => {
     if(showAddform){
       setShowAddForm(!showAddform);
     }
-    setshowUpdateform(!showUpdateform);
+    if(showUpdateform){
+      setshowUpdateForm(!showUpdateform);
+    }
+    setshowDeleteForm(!showDeleteform);
   }
+
 
   const [mode, setMode] = useState("Dark")
   // let mode ="Dark";
@@ -126,21 +145,23 @@ function App() {
     <button onClick={handleDarkMode}>{mode} Mode</button>
     <button onClick={showAddForm} >{showAddform? "Save Add":"Add"} </button>
     <button onClick={showUpdateForm} >{showUpdateform? "Save Updates":"Update"} </button>
+    <button onClick={showDeleteForm} >{showDeleteform? "Save Deletes":"Delete"} </button>
     {showAddform ? <AddData interests={interests} skills={skills} education={education} EC_items={EC_items} setInterests={setInterests} setSkills={setSkills} setEducation={setEducation} setEC_items={setEC_items}  resume={resume}/>: null}
-    {showUpdateform ? <UpdateData interests={interests} skills={skills} education={education} EC_items={EC_items} setInterests={setInterests} setSkills={setSkills} setEducation={setEducation} setEC_items={setEC_items}  resume={resume}/>: null}
+    {showUpdateform ? <UpdateData  setInterests={setInterests} setSkills={setSkills} setEducation={setEducation} setEC_items={setEC_items}  resume={resume}/>: null}
+    {showDeleteform ? <DeleteData  setInterests={setInterests} setSkills={setSkills} setEducation={setEducation} setEC_items={setEC_items}  resume={resume}/>: null}
 
     <h1>Resume</h1>
     <h1>Sourav</h1>
-    <hr />
+
     {interests.length > 0 ?<Interests interests={interests} /> :null }
-    <hr />
-    {resume.skills.length > 0 ?<Skill skills={skills}  /> :null }
-    <hr />
-    {resume.education.length > 0 ?<Education education={education} /> :null }
-    <hr />
+
+    {skills.length > 0 ?<Skill skills={skills}  /> :null }
+
+    {education.length > 0 ?<Education education={education} /> :null }
+
     {resume.experience.length > 0 ?<Experiance experience={resume.experience} /> :null }
-    <hr />
-    {resume.EC_items.length > 0 ?<Extracurriculars layout="alpha" EC_items={EC_items}/> :null }
+
+    {EC_items.length > 0 ?<Extracurriculars layout="alpha" EC_items={EC_items}/> :null }
     </div>
     </Border>    
 

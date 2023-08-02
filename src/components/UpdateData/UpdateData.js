@@ -1,15 +1,10 @@
-import React,{useState} from 'react'
+import React from 'react'
 
-export default function AddData({interests,skills,education,EC_items ,setInterests,setSkills,setEC_items,setEducation}) {
-    const [Interestsdata, setInterestsData] = useState(interests)
-    const [Skillsdata, setSkillsData] = useState(skills)
-    const [Educationdata, setEducationData] = useState(education)
-    const [EC_itemsdata, setEC_itemsData] = useState(EC_items)
+export default function AddData({setInterests,setSkills,setEC_items,setEducation}) {
 
     const handleInterestsChange = (e) => {
         let temp_data = e.target.value;
         let final_data = temp_data.split(/[ ,]+/)
-        console.log(final_data)
         setInterests(final_data)
     };
     

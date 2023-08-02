@@ -4,6 +4,7 @@ export default function Extracurriculars(props) {
   
   return (
     <>
+    <hr />
     <p className="head">Extracurriculars</p>
     <ol>{props.EC_items.map((data)=>{
             if (props.layout ==="numbered"){

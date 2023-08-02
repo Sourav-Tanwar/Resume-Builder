@@ -22,6 +22,7 @@ export default function Experiance({experience}) {
   );
   return (
     <>
+    <hr />
     <p className="head">Experiance</p>
     {content}
  

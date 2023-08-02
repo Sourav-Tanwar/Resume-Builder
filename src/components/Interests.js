@@ -21,6 +21,7 @@ export default function Interests({interests}) {
   // },[interests])
   return (
     <>
+    <hr />
     <div className='container'>
     <p className="head">Interests</p>
     {/* <button className='edit' onClick={showForm} >{showform? "Save":"Edit"}</button>

@@ -3,6 +3,7 @@ import React from 'react'
 export default function Skill({skills}) {
   return (
     <>
+    <hr />
     <div className='container'>
     <p className="head">Skills</p>
     <ul>{skills.map((data)=>{
