@@ -1,32 +1,51 @@
 import React,{useState} from 'react'
 
-export default function AddData({interests,skills,education,EC_items ,setInterests,setSkills,setEC_items,setEducation}) {
-    const [Interestsdata, setInterestsData] = useState(interests)
-    const [Skillsdata, setSkillsData] = useState(skills)
-    const [Educationdata, setEducationData] = useState(education)
-    const [EC_itemsdata, setEC_itemsData] = useState(EC_items)
-    const handleInterestsChange = (e) => {
-        let temp_data = e.target.value;
-        let final_data = temp_data.split(/[ ,]+/)
-        console.log(final_data)
-        setInterests(Interestsdata.concat(final_data))
+export default function AddData({dispatch,resume,}) {
+    const Interestsdata=resume.interests;
+    const Skillsdata = resume.skills;
+    const Educationdata=resume.education
+    const EC_itemsdata =resume.EC_items
+    var data =[];
+    const handleInterestsChange = async(e) => {
+        if(e.target.value){
+        var temp_data = e.target.value;
+        var final_data = temp_data.split(/[ ,]+/)
+        }
+        await dispatch({
+            type: 'ADD_INTERESTS',
+            data: Interestsdata.concat(final_data)
+          });
+        // console.log(Interestsdata)
+        // setInterests(Interestsdata.concat(final_data))
     };
-    
     const handleSkillChange = (e) => {
         let temp_data = e.target.value;
         let final_data = temp_data.split(/[ ,]+/)
-        setSkills(Skillsdata.concat(final_data))
+        // setSkills(Skillsdata.concat(final_data))
+        dispatch({
+            type: 'ADD_SKILLS',
+            data: Skillsdata.concat(final_data)
+        });
 
     };
     const handleEducationChange = (e) => {
         let temp_data = e.target.value;
         let final_data = temp_data.split(/[ ,]+/)
-        setEducation(Educationdata.concat(final_data))
+        dispatch({
+            type: 'ADD_EDUCATION',
+            data: Educationdata.concat(final_data)
+        });
+        // setEducation(Educationdata.concat(final_data))
     };
     const handleExtracurricularsChange = (e) => {
         let temp_data = e.target.value;
         let final_data = temp_data.split(/[ ,]+/)
-        setEC_items(EC_itemsdata.concat(final_data))
+
+        dispatch({
+            type: 'ADD_EC_ITEMS',
+            data: EC_itemsdata.concat(final_data)
+        });
+        // setEC_items(EC_itemsdata.concat(final_data))
     
     };
     const handleSubmit = (e) => {
@@ -38,7 +57,7 @@ export default function AddData({interests,skills,education,EC_items ,setInteres
     <form onSubmit={handleSubmit}>
         <div>
         <label >Add Interests: </label>
-        <input type="text" onChange={handleInterestsChange}/>
+        <input type="text"  onChange={handleInterestsChange}/>
         </div>
         <div>
         <label >Add Skills: </label>

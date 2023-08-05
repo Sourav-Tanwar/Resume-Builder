@@ -1,5 +1,5 @@
 import './App1.css';
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useReducer} from 'react';
 import Skill from './components/Skill';
 import Education from './components/Education';
 import Experiance from './components/Experiance';
@@ -45,16 +45,57 @@ let resume = {
   ] 
 
 function App() {
+  let interests =resume.interests;
+  let skills = resume.skills;
+  let education = resume.education;
+  let EC_items = resume.EC_items;
+  // const [Add_interests, dispatch] =useReducer(Add_Reducer,resume.interests)
+  const reducer =(state, action)=>{
+    switch(action.type){
+      case "ADD_INTERESTS":
+        interests = action.data
+        return interests 
+      case "ADD_SKILLS":
+        skills = action.data
+        return skills
+
+      case "ADD_EDUCATION":
+        education = action.data
+        return education
+
+      case "ADD_EC_ITEMS":
+        EC_items = action.data
+        return EC_items
+      
+        case "UPDATE_INTERESTS":
+          interests = action.data
+          return interests 
+        case "UPDATE_SKILLS":
+          skills = action.data
+          return skills
+  
+        case "UPDATE_EDUCATION":
+          education = action.data
+          return education
+  
+        case "UPDATE_EC_ITEMS":
+          EC_items = action.data
+          return EC_items
+    }
+  }
+
+  const [state, dispatch] = useReducer(reducer,[])
+ 
+
 
   const [showAddform, setShowAddForm] = useState(false); 
   const [showUpdateform, setshowUpdateForm] = useState(false); 
   const [showDeleteform, setshowDeleteForm] = useState(false); 
-  const [interests, setInterests] = useState(resume.interests);
-  const [skills, setSkills] = useState(resume.skills);
-  const [education, setEducation] = useState(resume.education);
-  const [EC_items, setEC_items] = useState(resume.EC_items);
+  // const [interests, setInterests] = useState(resume.interests);
+  // const [skills, setSkills] = useState(resume.skills);
+  // const [education, setEducation] = useState(resume.education);
+  // const [EC_items, setEC_items] = useState(resume.EC_items);
   
-  // console.log(interests)
   useEffect(()=>{
     // console.log(interests)
     // setInterests(skills)
@@ -146,9 +187,9 @@ function App() {
     <button onClick={showAddForm} >{showAddform? "Save Add":"Add"} </button>
     <button onClick={showUpdateForm} >{showUpdateform? "Save Updates":"Update"} </button>
     <button onClick={showDeleteForm} >{showDeleteform? "Save Deletes":"Delete"} </button>
-    {showAddform ? <AddData interests={interests} skills={skills} education={education} EC_items={EC_items} setInterests={setInterests} setSkills={setSkills} setEducation={setEducation} setEC_items={setEC_items}  resume={resume}/>: null}
-    {showUpdateform ? <UpdateData  setInterests={setInterests} setSkills={setSkills} setEducation={setEducation} setEC_items={setEC_items}  resume={resume}/>: null}
-    {showDeleteform ? <DeleteData  setInterests={setInterests} setSkills={setSkills} setEducation={setEducation} setEC_items={setEC_items}  resume={resume}/>: null}
+    {showAddform ? <AddData dispatch={dispatch} resume={resume}   />: null}
+    {/* {showUpdateform ? <UpdateData  setInterests={setInterests} setSkills={setSkills} setEducation={setEducation} setEC_items={setEC_items}  resume={resume}/>: null}
+    {showDeleteform ? <DeleteData  setInterests={setInterests} setSkills={setSkills} setEducation={setEducation} setEC_items={setEC_items}  resume={resume}/>: null} */}
 
     <h1>Resume</h1>
     <h1>Sourav</h1>
