@@ -86,6 +86,21 @@ function App() {
       case "UPDATE_EC_ITEMS":
         EC_items = action.data
         return EC_items
+
+      case "DELETE_INTERESTS":
+        interests = action.data
+        return interests 
+      case "DELETE_SKILLS":
+        skills = action.data
+        return skills
+
+      case "DELETE_EDUCATION":
+        education = action.data
+        return education
+
+      case "DELETE_EC_ITEMS":
+        EC_items = action.data
+        return EC_items
     }
   }
 
@@ -193,7 +208,7 @@ console.log(education)
     <button onClick={showDeleteForm} >{showDeleteform? "Save Deletes":"Delete"} </button>
     {showAddform ? <AddData dispatch={dispatch} resume={resume} interests={interests} skills={skills} education={education} EC_items={EC_items} />: null}
     {showUpdateform ? <UpdateData dispatch={dispatch}  />: null}  
-    {/* {showDeleteform ? <DeleteData  setInterests={setInterests} setSkills={setSkills} setEducation={setEducation} setEC_items={setEC_items}  resume={resume}/>: null} */}
+    {showDeleteform ? <DeleteData dispatch={dispatch} interests={interests} skills={skills} education={education} EC_items={EC_items}   resume={resume}/>: null}
 
     <h1>Resume</h1>
     <h1>Sourav</h1>

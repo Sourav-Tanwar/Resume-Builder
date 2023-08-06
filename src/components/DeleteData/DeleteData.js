@@ -1,19 +1,35 @@
 import React from 'react'
 
-export default function AddData({setInterests,setSkills,setEC_items,setEducation}) {
+export default function AddData({dispatch,setInterests,setSkills,setEC_items,setEducation,interests,education,skills,EC_items}) {
 
     const handleInterestsChange = (e) => {
-        setInterests([])
+        dispatch({
+            type: 'DELETE_INTERESTS',
+            data: []
+          });
+        // setInterests([])
     };
     
     const handleSkillChange = (e) => {
-        setSkills([])
+        dispatch({
+            type: 'DELETE_SKILLS',
+            data: []
+          });
+        // setSkills([])
     };
     const handleEducationChange = (e) => {
-        setEducation([])
+        dispatch({
+            type: 'DELETE_EDUCATION',
+            data: []
+          });
+        // setEducation([])
     };
     const handleExtracurricularsChange = (e) => {
-        setEC_items([])
+        dispatch({
+            type: 'DELETE_EC_ITEMS',
+            data: []
+          });
+        // setEC_items([])
     
     };
     const handleSubmit = (e) => {
