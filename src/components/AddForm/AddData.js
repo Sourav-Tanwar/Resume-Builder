@@ -1,16 +1,16 @@
 import React,{useState} from 'react'
 
-export default function AddData({dispatch,resume,}) {
-    const Interestsdata=resume.interests;
-    const Skillsdata = resume.skills;
-    const Educationdata=resume.education
-    const EC_itemsdata =resume.EC_items
-    var data =[];
+export default function AddData({dispatch,resume,interests,education,skills,EC_items}) {
+    const [Interestsdata,setInterests]= useState(interests);
+    const [Skillsdata,setSkills ]= useState(skills);
+    const [Educationdata,setEducationdata ]= useState(education);
+    const [EC_itemsdata,setEC_itemsdata ]= useState(EC_items);
+    // console.log(interests)
+    console.log(skills,Skillsdata)
     const handleInterestsChange = async(e) => {
-        if(e.target.value){
-        var temp_data = e.target.value;
-        var final_data = temp_data.split(/[ ,]+/)
-        }
+        let temp_data = e.target.value;
+        let final_data = temp_data.split(/[ ,]+/)
+        
         await dispatch({
             type: 'ADD_INTERESTS',
             data: Interestsdata.concat(final_data)
@@ -18,14 +18,15 @@ export default function AddData({dispatch,resume,}) {
         // console.log(Interestsdata)
         // setInterests(Interestsdata.concat(final_data))
     };
-    const handleSkillChange = (e) => {
+    const handleSkillChange = async(e) => {
         let temp_data = e.target.value;
         let final_data = temp_data.split(/[ ,]+/)
-        // setSkills(Skillsdata.concat(final_data))
-        dispatch({
+        
+        await dispatch({
             type: 'ADD_SKILLS',
             data: Skillsdata.concat(final_data)
         });
+        // setSkills(Skillsdata.concat(final_data))
 
     };
     const handleEducationChange = (e) => {

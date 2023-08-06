@@ -43,50 +43,55 @@ let resume = {
     { name:  'Pak', value:  'PK' },
     { name:  'Bangladesh', value:  'BG' },
   ] 
-
-function App() {
   let interests =resume.interests;
   let skills = resume.skills;
   let education = resume.education;
   let EC_items = resume.EC_items;
+function App() {
+  // const interests =resume.interests;
+  // const skills = resume.skills;
+  // let education = resume.education;
+  // let EC_items = resume.EC_items;
   // const [Add_interests, dispatch] =useReducer(Add_Reducer,resume.interests)
   const reducer =(state, action)=>{
     switch(action.type){
       case "ADD_INTERESTS":
         interests = action.data
-        return interests 
+        return interests
+        break;
       case "ADD_SKILLS":
         skills = action.data
         return skills
-
+        break;
       case "ADD_EDUCATION":
         education = action.data
         return education
-
+        break;
       case "ADD_EC_ITEMS":
         EC_items = action.data
         return EC_items
-      
-        case "UPDATE_INTERESTS":
-          interests = action.data
-          return interests 
-        case "UPDATE_SKILLS":
-          skills = action.data
-          return skills
-  
-        case "UPDATE_EDUCATION":
-          education = action.data
-          return education
-  
-        case "UPDATE_EC_ITEMS":
-          EC_items = action.data
-          return EC_items
+        break;
+
+      case "UPDATE_INTERESTS":
+        interests = action.data
+        return interests 
+      case "UPDATE_SKILLS":
+        skills = action.data
+        return skills
+
+      case "UPDATE_EDUCATION":
+        education = action.data
+        return education
+
+      case "UPDATE_EC_ITEMS":
+        EC_items = action.data
+        return EC_items
     }
   }
 
-  const [state, dispatch] = useReducer(reducer,[])
+  const [state, dispatch] = useReducer(reducer,resume)
  
-
+console.log(education)
 
   const [showAddform, setShowAddForm] = useState(false); 
   const [showUpdateform, setshowUpdateForm] = useState(false); 
@@ -97,8 +102,7 @@ function App() {
   // const [EC_items, setEC_items] = useState(resume.EC_items);
   
   useEffect(()=>{
-    // console.log(interests)
-    // setInterests(skills)
+
   },[skills,interests,education,EC_items])
 
   const showAddForm = () => {
@@ -187,9 +191,9 @@ function App() {
     <button onClick={showAddForm} >{showAddform? "Save Add":"Add"} </button>
     <button onClick={showUpdateForm} >{showUpdateform? "Save Updates":"Update"} </button>
     <button onClick={showDeleteForm} >{showDeleteform? "Save Deletes":"Delete"} </button>
-    {showAddform ? <AddData dispatch={dispatch} resume={resume}   />: null}
-    {/* {showUpdateform ? <UpdateData  setInterests={setInterests} setSkills={setSkills} setEducation={setEducation} setEC_items={setEC_items}  resume={resume}/>: null}
-    {showDeleteform ? <DeleteData  setInterests={setInterests} setSkills={setSkills} setEducation={setEducation} setEC_items={setEC_items}  resume={resume}/>: null} */}
+    {showAddform ? <AddData dispatch={dispatch} resume={resume} interests={interests} skills={skills} education={education} EC_items={EC_items} />: null}
+    {showUpdateform ? <UpdateData dispatch={dispatch}  />: null}  
+    {/* {showDeleteform ? <DeleteData  setInterests={setInterests} setSkills={setSkills} setEducation={setEducation} setEC_items={setEC_items}  resume={resume}/>: null} */}
 
     <h1>Resume</h1>
     <h1>Sourav</h1>

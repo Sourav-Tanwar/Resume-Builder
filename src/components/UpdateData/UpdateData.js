@@ -1,30 +1,46 @@
 import React from 'react'
 
-export default function AddData({setInterests,setSkills,setEC_items,setEducation}) {
+export default function AddData({dispatch}) {
 
     const handleInterestsChange = (e) => {
         let temp_data = e.target.value;
         let final_data = temp_data.split(/[ ,]+/)
-        setInterests(final_data)
+        dispatch({
+            type: 'UPDATE_INTERESTS',
+            data: final_data
+        });
+        // setInterests(final_data)
     };
     
     const handleSkillChange = (e) => {
         let temp_data = e.target.value;
         let final_data = temp_data.split(/[ ,]+/)
-        
-        setSkills(final_data)
+        dispatch({
+            type: 'UPDATE_SKILLS',
+            data: final_data
+        });
+        // setSkills(final_data)
        
 
     };
+    
     const handleEducationChange = (e) => {
         let temp_data = e.target.value;
         let final_data = temp_data.split(/[ ,]+/)
-        setEducation(final_data)
+        dispatch({
+            type: 'UPDATE_EDUCATION',
+            data: final_data
+        });
+        // setEducation(final_data)
     };
     const handleExtracurricularsChange = (e) => {
         let temp_data = e.target.value;
         let final_data = temp_data.split(/[ ,]+/)
-        setEC_items(final_data)
+        dispatch({
+            type: 'UPDATE_EC_ITEMS',
+            data: final_data
+        });
+        // setEC_items(final_data)
     
     };
     const handleSubmit = (e) => {
