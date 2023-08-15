@@ -20,6 +20,8 @@ import List from './components/Chapter6/Assignment2.1/List';
 import AddData from './components/AddForm/AddData';
 import UpdateData from './components/UpdateData/UpdateData';
 import DeleteData from './components/DeleteData/DeleteData';
+// import FontContext from './context/FontContext'
+import ModeContext from './context/ModeContext'
 
 let resume = {
   interests: ["React","Mongo DB", "Node JS" ,"Express"],
@@ -43,6 +45,7 @@ let resume = {
   let education = resume.education;
   let EC_items = resume.EC_items;
 function App() {
+  let mode = useContext(ModeContext)
   // const interests =resume.interests;
   // const skills = resume.skills;
   // let education = resume.education;
@@ -145,7 +148,7 @@ function App() {
   }
 
 
-  const [mode, setMode] = useState("Dark")
+  // const [mode, setMode] = useState("Dark")
   // let mode ="Dark";
   const handleDarkMode= (mode)=>{
     console.log(mode)
@@ -154,17 +157,18 @@ function App() {
     if (current_class==="stuff"){
       document.getElementById('content').className = 'dark-mode';
       // mode = "Light"
-      setMode("Light")
+      mode="Light"
       console.log(mode)
     }
     else{
       document.getElementById('content').className = 'stuff';
       // mode = "Dark"
-      setMode("Dark")
+      mode="Dark"
       console.log(mode)
     }
    }
-
+   console.log(mode)
+  
   const handleSubmit = (e) => {
     e.preventDefault()
     // take data to submit
@@ -201,7 +205,7 @@ function App() {
     <div  onSubmit={handleSubmit}>
     <div className="d-grid gap-2 d-md-block">
       <button type="button"  onClick={handlePrint}>Print Resume</button>
-      <button type="button" onClick={handleDarkMode}>{mode} Mode</button>
+      <button type="button" onClick={handleDarkMode}>Change Mode</button>
       <button type="button" onClick={showAddForm} >{showAddform? "Save Add":"Add"} </button>
       <button type="button" onClick={showUpdateForm} >{showUpdateform? "Save Updates":"Update"} </button>
       <button type="button" onClick={showDeleteForm} >{showDeleteform? "Save Deletes":"Delete"} </button>

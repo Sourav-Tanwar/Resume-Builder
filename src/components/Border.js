@@ -1,9 +1,11 @@
-import React,{useContext, useState} from 'react'
+import React,{ useState} from 'react'
 import '../App1.css';
 import FontContext from '../context/FontContext';
 
 
 export default function Border(props) {
+
+  const [mode, setMode] = useState("Dark")
   const [font_family, setfont_family] = useState("cursive");
   const [font_color, setfont_color] = useState("green");
   console.log(font_family)
@@ -15,7 +17,7 @@ export default function Border(props) {
   setfont_color(e.target.value)
   }
   return (
-    <> <FontContext.Provider value={{font_family,setfont_family,setfont_color,font_color}} >
+    <> <FontContext.Provider value={{font_family,setfont_family,setfont_color,font_color,mode,setMode}} >
         <div id="header" ></div>
             <div className="left"></div>
             <div id="content"  style={{fontFamily:font_family, color:font_color}}  className="stuff">
