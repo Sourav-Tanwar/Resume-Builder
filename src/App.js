@@ -1,5 +1,5 @@
 import './App1.css';
-import React, {useState, useEffect, useReducer} from 'react';
+import React, {useState, useEffect, useReducer, useContext} from 'react';
 import Skill from './components/Skill';
 import Education from './components/Education';
 import Experiance from './components/Experiance';
@@ -20,11 +20,6 @@ import List from './components/Chapter6/Assignment2.1/List';
 import AddData from './components/AddForm/AddData';
 import UpdateData from './components/UpdateData/UpdateData';
 import DeleteData from './components/DeleteData/DeleteData';
-
-
-
-
-
 
 let resume = {
   interests: ["React","Mongo DB", "Node JS" ,"Express"],
@@ -106,7 +101,7 @@ function App() {
 
   const [state, dispatch] = useReducer(reducer,resume)
  
-console.log(education)
+// console.log(education)
 
   const [showAddform, setShowAddForm] = useState(false); 
   const [showUpdateform, setshowUpdateForm] = useState(false); 
@@ -178,9 +173,12 @@ console.log(education)
    const handlePrint =()=>{
       window.print()
    }
+
+
+
   return (
     <>
-    <div  >    {/*  onClick={()=>console.log("App")} */}
+    <div >    {/*  onClick={()=>console.log("App")} */}
     
 
     
@@ -200,20 +198,22 @@ console.log(education)
 
     
     <Border >
-      <div onSubmit={handleSubmit}>
-    <button onClick={handlePrint}>Print Resume</button>
-    <button onClick={handleDarkMode}>{mode} Mode</button>
-    <button onClick={showAddForm} >{showAddform? "Save Add":"Add"} </button>
-    <button onClick={showUpdateForm} >{showUpdateform? "Save Updates":"Update"} </button>
-    <button onClick={showDeleteForm} >{showDeleteform? "Save Deletes":"Delete"} </button>
+    <div  onSubmit={handleSubmit}>
+    <div className="d-grid gap-2 d-md-block">
+      <button type="button"  onClick={handlePrint}>Print Resume</button>
+      <button type="button" onClick={handleDarkMode}>{mode} Mode</button>
+      <button type="button" onClick={showAddForm} >{showAddform? "Save Add":"Add"} </button>
+      <button type="button" onClick={showUpdateForm} >{showUpdateform? "Save Updates":"Update"} </button>
+      <button type="button" onClick={showDeleteForm} >{showDeleteform? "Save Deletes":"Delete"} </button>
+    </div>
     {showAddform ? <AddData dispatch={dispatch} resume={resume} interests={interests} skills={skills} education={education} EC_items={EC_items} />: null}
     {showUpdateform ? <UpdateData dispatch={dispatch}  />: null}  
     {showDeleteform ? <DeleteData dispatch={dispatch} interests={interests} skills={skills} education={education} EC_items={EC_items}   resume={resume}/>: null}
 
-    <h1>Resume</h1>
+    <h1 >Resume</h1>
     <h1>Sourav</h1>
 
-    {interests.length > 0 ?<Interests interests={interests} /> :null }
+    {interests.length > 0 ?<Interests  interests={interests} /> :null }
 
     {skills.length > 0 ?<Skill skills={skills}  /> :null }
 
@@ -223,6 +223,7 @@ console.log(education)
 
     {EC_items.length > 0 ?<Extracurriculars layout="alpha" EC_items={EC_items}/> :null }
     </div>
+ 
     </Border>    
 
     {/* <Interests interests={resume.interests} /> */} 

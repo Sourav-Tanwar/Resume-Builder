@@ -1,7 +1,13 @@
-import React from 'react'
+import React,{useContext} from 'react'
 // import EditInterests from './EditForm/EditInterests'
+import FontContext from '../context/FontContext'
 
 export default function Interests({interests}) {
+
+  const theme = useContext(FontContext)
+  const handleClick =()=>{
+    theme.setfont_color("red")
+  }
 
   // const [showform, setShowForm] = useState(false);
   // const [interests, setInterests] = useState(interests_data);
@@ -26,6 +32,7 @@ export default function Interests({interests}) {
     <p className="head">Interests</p>
     {/* <button className='edit' onClick={showForm} >{showform? "Save":"Edit"}</button>
     {showform ? <EditInterests setInterests={setInterests}/>: null} */}
+    <button onClick={handleClick}>Change font color to red</button>
     <ul>{interests.map((data)=>{
           return <li key={data}>{data}</li>
         })
