@@ -1,6 +1,6 @@
 import React,{useState} from 'react'
 
-export default function AddData({dispatch,resume,interests,education,skills,EC_items}) {
+export default function AddData({dispatch,interests,education,skills,EC_items}) {
     const [Interestsdata,setInterests]= useState(interests);
     const [Skillsdata,setSkills ]= useState(skills);
     const [Educationdata,setEducationdata ]= useState(education);

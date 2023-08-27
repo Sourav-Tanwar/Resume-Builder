@@ -1,5 +1,5 @@
 import { createContext } from "react";
 
-let ModeContext = createContext('Dark');
+let ModeContext = createContext();
  
 export default ModeContext;

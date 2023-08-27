@@ -22,6 +22,10 @@ import UpdateData from './components/UpdateData/UpdateData';
 import DeleteData from './components/DeleteData/DeleteData';
 // import FontContext from './context/FontContext'
 import ModeContext from './context/ModeContext'
+import Counter from './components/Chapter10/Counter';
+import ControlButtons from './components/Chapter5/Asignment2/ControlButtons';
+
+
 
 let resume = {
   interests: ["React","Mongo DB", "Node JS" ,"Express"],
@@ -210,12 +214,13 @@ function App() {
       <button type="button" onClick={showUpdateForm} >{showUpdateform? "Save Updates":"Update"} </button>
       <button type="button" onClick={showDeleteForm} >{showDeleteform? "Save Deletes":"Delete"} </button>
     </div>
-    {showAddform ? <AddData dispatch={dispatch} resume={resume} interests={interests} skills={skills} education={education} EC_items={EC_items} />: null}
+    {showAddform ? <AddData dispatch={dispatch} interests={interests} skills={skills} education={education} EC_items={EC_items} />: null}
     {showUpdateform ? <UpdateData dispatch={dispatch}  />: null}  
-    {showDeleteform ? <DeleteData dispatch={dispatch} interests={interests} skills={skills} education={education} EC_items={EC_items}   resume={resume}/>: null}
+    {showDeleteform ? <DeleteData dispatch={dispatch} />: null}
 
     <h1 >Resume</h1>
     <h1>Sourav</h1>
+    <Counter></Counter>
 
     {interests.length > 0 ?<Interests  interests={interests} /> :null }
 

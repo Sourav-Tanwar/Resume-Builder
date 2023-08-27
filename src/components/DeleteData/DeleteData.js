@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function AddData({dispatch,setInterests,setSkills,setEC_items,setEducation,interests,education,skills,EC_items}) {
+export default function AddData({dispatch}) {
 
     const handleInterestsChange = (e) => {
         dispatch({
